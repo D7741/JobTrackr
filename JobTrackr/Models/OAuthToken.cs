@@ -15,7 +15,16 @@ namespace JobTrackr.Models
 
     public DateTime ExpiresAt { get; set; }
     
+    // What permissions requested from the provider.
+    // eg. Gmail.readonly - scope(read onlyl); Outlook.modify - scope(allow edit).
     public string Scope { get; set; } = string.Empty;
+
+    // "Google", "Microsoft"
+    public string Provider { get; set; } = string.Empty;
+
+    public bool IsRevoked { get; set; } = false;
+
+    public DateTime? RevokedAt { get; set; }
 
     public User User { get; set; } = null!;
 
